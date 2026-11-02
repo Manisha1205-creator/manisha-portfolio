@@ -43,8 +43,8 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'glass-panel shadow-lg shadow-black/10 py-3 border-b border-white/10 dark:border-white/10'
-            : 'bg-transparent py-5'
+            ? 'bg-[#070b13]/95 dark:bg-[#070b13]/95 light:bg-white/95 backdrop-blur-xl shadow-xl shadow-black/25 py-3 border-b border-white/15 dark:border-white/15 light:border-slate-300'
+            : 'bg-transparent py-4 sm:py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,7 +55,7 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
               className="flex items-center gap-3 group focus:outline-none"
               aria-label="Manisha Pandey Portfolio Home"
             >
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-glow-cyan/50">
+              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-glow-cyan/50 shrink-0">
                 <div className="w-full h-full bg-[#080c14] dark:bg-[#080c14] light:bg-white rounded-[10px] flex items-center justify-center">
                   <span className="font-display font-bold text-sm tracking-tighter gradient-text">MP</span>
                 </div>
@@ -64,14 +64,14 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
                 <span className="font-display font-bold text-base tracking-tight text-white dark:text-white light:text-slate-900 group-hover:text-cyan-400 transition-colors">
                   Manisha Pandey
                 </span>
-                <span className="text-[11px] font-mono text-cyan-400/90 tracking-wide hidden sm:block">
+                <span className="text-[11px] font-mono text-cyan-300 dark:text-cyan-300 light:text-purple-700 tracking-wide font-medium hidden sm:block">
                   CSE &bull; Aspiring Software Dev
                 </span>
               </div>
             </a>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 glass-panel px-3 py-1.5 rounded-full border border-white/10 dark:border-white/10 light:border-slate-300 light:bg-slate-100/80">
+            {/* Desktop Navigation - High-Contrast Pill Container */}
+            <nav className="hidden lg:flex items-center gap-1.5 bg-[#0c1322] dark:bg-[#0c1322] light:bg-slate-100 px-3 py-1.5 rounded-full border border-white/20 dark:border-white/20 light:border-slate-300 shadow-md">
               {NAV_LINKS.map((link) => {
                 const sectionId = link.href.replace('#', '');
                 const isActive = activeSection === sectionId;
@@ -79,10 +79,10 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                    className={`relative px-3.5 py-1.5 text-xs lg:text-[13px] font-semibold tracking-wide rounded-full transition-all duration-200 ${
                       isActive
-                        ? 'text-white dark:text-white light:text-white bg-gradient-to-r from-cyan-500/90 to-purple-600/90 shadow-sm'
-                        : 'text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white dark:hover:text-white light:hover:text-slate-900 hover:bg-white/5'
+                        ? 'text-white bg-gradient-to-r from-cyan-500 to-purple-600 shadow-sm shadow-cyan-500/20'
+                        : 'text-slate-100 dark:text-slate-100 light:text-slate-800 hover:text-white dark:hover:text-white light:hover:text-purple-700 hover:bg-white/15 dark:hover:bg-white/15 light:hover:bg-slate-200/80'
                     }`}
                   >
                     {link.name}
@@ -98,12 +98,12 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
                 type="button"
                 onClick={onOpenCommand}
                 aria-label="Open command palette"
-                className="hidden md:flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-mono bg-dark-900/80 dark:bg-dark-900/80 light:bg-slate-200/80 text-slate-400 hover:text-cyan-400 border border-white/10 light:border-slate-300 transition-colors"
+                className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono bg-[#0c1322] dark:bg-[#0c1322] light:bg-slate-200 text-slate-200 dark:text-slate-200 light:text-slate-700 hover:text-cyan-300 border border-white/15 dark:border-white/15 light:border-slate-300 transition-colors"
                 title="Search portfolio (Ctrl+K)"
               >
-                <Search className="w-3.5 h-3.5" />
-                <span className="text-[11px] hidden xl:inline">Quick Jump</span>
-                <kbd className="px-1.5 py-0.5 text-[10px] rounded bg-white/10 dark:bg-white/10 light:bg-white border border-white/10 text-slate-300 dark:text-slate-300 light:text-slate-700">
+                <Search className="w-3.5 h-3.5 text-cyan-400" />
+                <span className="text-[11px] font-semibold hidden xl:inline">Search</span>
+                <kbd className="px-1.5 py-0.5 text-[10px] rounded bg-white/10 dark:bg-white/10 light:bg-white border border-white/15 font-mono text-slate-200 dark:text-slate-200 light:text-slate-700">
                   Ctrl K
                 </kbd>
               </button>
@@ -113,10 +113,10 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
                 type="button"
                 onClick={toggleTheme}
                 aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-                className="p-2 rounded-xl text-slate-300 hover:text-cyan-400 bg-white/5 hover:bg-white/10 border border-white/10 light:border-slate-200 light:bg-slate-100 light:text-slate-700 transition-all duration-200"
+                className="p-2 rounded-xl text-slate-200 hover:text-cyan-300 bg-white/10 hover:bg-white/15 border border-white/15 dark:border-white/15 light:border-slate-300 light:bg-slate-100 light:text-slate-700 transition-all duration-200"
               >
                 {isDark ? (
-                  <Sun className="w-4 h-4 text-amber-400 transition-transform hover:rotate-90" />
+                  <Sun className="w-4 h-4 text-amber-300 transition-transform hover:rotate-90" />
                 ) : (
                   <Moon className="w-4 h-4 text-purple-600 transition-transform hover:-rotate-12" />
                 )}
@@ -126,7 +126,7 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
               <button
                 type="button"
                 onClick={onOpenResume}
-                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 light:border-slate-300 light:text-slate-700 transition-colors"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg text-white bg-white/10 hover:bg-white/20 border border-white/20 light:border-slate-300 light:text-slate-800 transition-colors"
               >
                 <Download className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Resume</span>
@@ -135,7 +135,7 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
               {/* Contact Direct Button */}
               <a
                 href="#contact"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 shadow-glow-cyan/20 transition-all duration-200 hover:shadow-glow-cyan/50 hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 shadow-glow-cyan/25 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>Connect</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -146,7 +146,7 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
-                className="lg:hidden p-2 rounded-xl text-slate-300 hover:text-white bg-white/5 border border-white/10 light:text-slate-700 light:border-slate-300"
+                className="lg:hidden p-2 rounded-xl text-slate-100 hover:text-white bg-white/10 border border-white/15 light:text-slate-800 light:border-slate-300"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -154,10 +154,10 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown Menu - High Contrast & Clearly Spaced */}
         {mobileMenuOpen && (
-          <div className="lg:hidden px-4 pt-3 pb-6 mt-3 glass-panel-elevated border-b border-white/10 light:bg-white light:border-slate-200 animate-in fade-in slide-in-from-top-2">
-            <div className="flex flex-col gap-1">
+          <div className="lg:hidden px-4 pt-3 pb-6 mt-3 bg-[#090e1a]/98 dark:bg-[#090e1a]/98 light:bg-white backdrop-blur-xl border-b border-white/15 dark:border-white/15 light:border-slate-300 shadow-2xl animate-in fade-in slide-in-from-top-2">
+            <div className="flex flex-col gap-1.5">
               {NAV_LINKS.map((link) => {
                 const sectionId = link.href.replace('#', '');
                 const isActive = activeSection === sectionId;
@@ -166,10 +166,10 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    className={`px-4 py-3 rounded-xl text-sm font-semibold tracking-wide transition-colors ${
                       isActive
-                        ? 'bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-300 font-semibold border-l-2 border-cyan-400'
-                        : 'text-slate-300 hover:text-white hover:bg-white/5 light:text-slate-700 light:hover:text-slate-900'
+                        ? 'bg-gradient-to-r from-cyan-500/25 to-purple-500/25 text-cyan-300 border-l-4 border-cyan-400'
+                        : 'text-slate-100 dark:text-slate-100 light:text-slate-800 hover:text-white hover:bg-white/10 light:hover:text-slate-900 light:hover:bg-slate-100'
                     }`}
                   >
                     {link.name}
@@ -177,17 +177,17 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
                 );
               })}
 
-              <div className="pt-3 mt-2 border-t border-white/10 light:border-slate-200 flex items-center justify-between">
+              <div className="pt-4 mt-2 border-t border-white/15 dark:border-white/15 light:border-slate-200 flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenCommand();
                   }}
-                  className="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-cyan-400"
+                  className="flex items-center gap-2 text-xs font-mono font-medium text-slate-300 hover:text-cyan-300"
                 >
-                  <Search className="w-4 h-4" />
-                  <span>Search Portfolio</span>
+                  <Search className="w-4 h-4 text-cyan-400" />
+                  <span>Search (Ctrl+K)</span>
                 </button>
 
                 <button
@@ -196,10 +196,10 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
                     setMobileMenuOpen(false);
                     onOpenResume();
                   }}
-                  className="flex items-center gap-1.5 text-xs text-cyan-400 font-semibold"
+                  className="flex items-center gap-1.5 text-xs text-cyan-400 font-bold hover:text-cyan-300"
                 >
                   <Download className="w-4 h-4" />
-                  <span>Resume Preview</span>
+                  <span>View Resume</span>
                 </button>
               </div>
             </div>
@@ -209,4 +209,3 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
     </>
   );
 };
-

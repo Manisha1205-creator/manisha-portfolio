@@ -22,7 +22,7 @@ export const Hero = ({ onOpenResume }) => {
       if (!isDeleting) {
         setDisplayText(currentFullTitle.substring(0, displayText.length + 1));
         if (displayText.length + 1 === currentFullTitle.length) {
-          setTimeout(() => setIsDeleting(true), 1800);
+          setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
         setDisplayText(currentFullTitle.substring(0, displayText.length - 1));
@@ -31,7 +31,7 @@ export const Hero = ({ onOpenResume }) => {
           setTitleIndex((prev) => (prev + 1) % ROTATING_TITLES.length);
         }
       }
-    }, isDeleting ? 45 : typingSpeed);
+    }, isDeleting ? 40 : typingSpeed);
 
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, titleIndex, typingSpeed]);
@@ -39,51 +39,50 @@ export const Hero = ({ onOpenResume }) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-grid-pattern"
+      className="relative min-h-screen flex items-center justify-center pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden bg-grid-pattern"
     >
       {/* Ambient background glows */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-cyan-500/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/3 right-1/4 translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
           {/* Left Column: Introduction & CTAs */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
+            
             {/* Status Pill */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full glass-panel border border-cyan-500/30 text-cyan-300 text-xs font-mono shadow-glow-cyan/20">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0d1627] border border-cyan-500/40 text-cyan-300 text-xs font-mono shadow-glow-cyan/20 mb-5">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
               </span>
-              <span>Available for Software Development Roles &amp; Internships</span>
+              <span className="font-medium">Available for Software Development Roles &amp; Internships</span>
             </div>
 
-            {/* Name & Headline */}
-            <div className="space-y-2">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-white">
-                Hi, I'm <span className="gradient-text">{personalInfo.name}</span>
-              </h1>
+            {/* Name Heading */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-white mb-3">
+              Hi, I'm <span className="gradient-text">{personalInfo.name}</span>
+            </h1>
 
-              {/* Dynamic Typewriter Role */}
-              <div className="h-10 sm:h-12 flex items-center justify-center lg:justify-start">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-mono font-medium text-slate-300">
-                  {displayText}
-                  <span className="inline-block w-[3px] h-6 sm:h-7 ml-1 bg-cyan-400 animate-pulse" />
-                </span>
-              </div>
+            {/* Dynamic Typewriter Role - Fixed Height & Sizing to prevent clipping */}
+            <div className="min-h-[4rem] sm:min-h-[3.25rem] w-full flex items-center justify-center lg:justify-start my-2">
+              <span className="text-xl sm:text-2xl md:text-3xl font-mono font-semibold text-cyan-300 drop-shadow-[0_0_12px_rgba(34,211,238,0.35)] leading-tight">
+                {displayText}
+                <span className="inline-block w-[3px] h-6 sm:h-7 ml-1 bg-cyan-400 animate-pulse align-middle" />
+              </span>
             </div>
 
-            {/* Short Introduction */}
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            {/* Short Introduction Paragraph */}
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl mt-4 mb-8">
               {personalInfo.shortBio}
             </p>
 
             {/* Call To Actions */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 sm:gap-4 w-full">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 shadow-glow-cyan/30 transition-all duration-200 hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 shadow-glow-cyan/30 transition-all duration-200 hover:scale-105 active:scale-95"
               >
                 <span>Explore My Work</span>
                 <ArrowRight className="w-4 h-4" />
@@ -92,7 +91,7 @@ export const Hero = ({ onOpenResume }) => {
               <button
                 type="button"
                 onClick={onOpenResume}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-200 glass-panel hover:bg-white/10 border border-white/15 transition-all duration-200 hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-100 bg-white/10 hover:bg-white/15 border border-white/20 transition-all duration-200 hover:scale-105 active:scale-95"
               >
                 <Download className="w-4 h-4 text-cyan-400" />
                 <span>Download Resume</span>
@@ -100,7 +99,7 @@ export const Hero = ({ onOpenResume }) => {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 border border-transparent hover:border-white/15 transition-all duration-200"
               >
                 <Mail className="w-4 h-4" />
                 <span>Contact Me</span>
@@ -108,15 +107,15 @@ export const Hero = ({ onOpenResume }) => {
             </div>
 
             {/* Social Icons & Highlights */}
-            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-              <span className="text-xs font-mono text-slate-400">Connect:</span>
+            <div className="pt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <span className="text-xs font-mono text-slate-400 font-medium">Connect:</span>
               <div className="flex items-center gap-2">
                 <a
                   href={personalInfo.github}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub Profile"
-                  className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-cyan-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-slate-200 hover:text-cyan-300 transition-colors"
                 >
                   <Github className="w-4 h-4" />
                 </a>
@@ -125,37 +124,37 @@ export const Hero = ({ onOpenResume }) => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn Profile"
-                  className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-cyan-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-slate-200 hover:text-cyan-300 transition-colors"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a
                   href={`mailto:${personalInfo.email}`}
                   aria-label="Email Manisha"
-                  className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-cyan-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-slate-200 hover:text-cyan-300 transition-colors"
                 >
                   <Mail className="w-4 h-4" />
                 </a>
               </div>
 
-              <div className="hidden sm:block h-4 w-[1px] bg-white/10" />
+              <div className="hidden sm:block h-4 w-[1px] bg-white/15" />
 
-              <div className="text-xs font-mono text-cyan-400/90 flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+              <div className="text-xs font-mono text-cyan-300 flex items-center gap-2 font-medium">
+                <Sparkles className="w-3.5 h-3.5 text-purple-400 shrink-0" />
                 <span>CHAKRAVYUH 1.0 Hackathon Participant</span>
               </div>
             </div>
           </div>
 
           {/* Right Column: High-Tech Interactive Terminal Visual */}
-          <div className="lg:col-span-5 flex justify-center">
+          <div className="lg:col-span-5 flex justify-center w-full">
             <div className="relative w-full max-w-lg">
               
               {/* Outer Glow frame */}
               <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500/30 via-purple-500/20 to-cyan-500/30 blur-xl opacity-75 animate-pulse-slow" />
 
               {/* Code Terminal Container */}
-              <div className="relative rounded-2xl glass-panel-elevated bg-[#0a0f1d]/90 border border-white/15 shadow-2xl overflow-hidden font-mono text-xs">
+              <div className="relative rounded-2xl glass-panel-elevated bg-[#0a0f1d]/95 border border-white/15 shadow-2xl overflow-hidden font-mono text-xs">
                 {/* Terminal Window Header */}
                 <div className="flex items-center justify-between px-4 py-3 bg-[#080c16] border-b border-white/10">
                   <div className="flex items-center gap-2">
@@ -163,48 +162,48 @@ export const Hero = ({ onOpenResume }) => {
                     <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                     <div className="w-3 h-3 rounded-full bg-green-500/80" />
                   </div>
-                  <div className="text-[11px] text-slate-400 flex items-center gap-1.5">
+                  <div className="text-[11px] text-slate-300 flex items-center gap-1.5 font-semibold">
                     <Terminal className="w-3.5 h-3.5 text-cyan-400" />
                     <span>manisha_developer.profile</span>
                   </div>
-                  <span className="text-[10px] text-slate-500">v2.0</span>
+                  <span className="text-[10px] text-slate-400 font-mono">v2.0</span>
                 </div>
 
                 {/* Terminal Body */}
-                <div className="p-5 space-y-3.5 text-slate-300">
+                <div className="p-5 space-y-3.5 text-slate-200">
                   <div>
-                    <span className="text-purple-400">const</span> developer = &#123;
+                    <span className="text-purple-400 font-semibold">const</span> developer = &#123;
                   </div>
                   <div className="pl-4 space-y-1">
                     <div>
-                      <span className="text-cyan-300">name:</span>{' '}
+                      <span className="text-cyan-300 font-semibold">name:</span>{' '}
                       <span className="text-amber-300">"Manisha Pandey"</span>,
                     </div>
                     <div>
-                      <span className="text-cyan-300">degree:</span>{' '}
+                      <span className="text-cyan-300 font-semibold">degree:</span>{' '}
                       <span className="text-amber-300">"B.Tech Computer Science"</span>,
                     </div>
                     <div>
-                      <span className="text-cyan-300">graduationStatus:</span>{' '}
+                      <span className="text-cyan-300 font-semibold">graduationStatus:</span>{' '}
                       <span className="text-emerald-400">"Final Year Student"</span>,
                     </div>
                     <div>
-                      <span className="text-cyan-300">coreLanguages:</span> [
+                      <span className="text-cyan-300 font-semibold">coreLanguages:</span> [
                       <span className="text-amber-300">"Java"</span>,{' '}
                       <span className="text-amber-300">"React"</span>,{' '}
                       <span className="text-amber-300">"Node.js"</span>,{' '}
                       <span className="text-amber-300">"SQL"</span>],
                     </div>
                     <div>
-                      <span className="text-cyan-300">hackathonTrack:</span>{' '}
+                      <span className="text-cyan-300 font-semibold">hackathonTrack:</span>{' '}
                       <span className="text-purple-300">"CHAKRAVYUH 1.0 (AI/Security)"</span>,
                     </div>
                     <div>
-                      <span className="text-cyan-300">mindset:</span>{' '}
+                      <span className="text-cyan-300 font-semibold">mindset:</span>{' '}
                       <span className="text-amber-300">"Continuous learning &amp; practical code"</span>,
                     </div>
                     <div>
-                      <span className="text-cyan-300">readyToContribute:</span>{' '}
+                      <span className="text-cyan-300 font-semibold">readyToContribute:</span>{' '}
                       <span className="text-emerald-400">true</span>
                     </div>
                   </div>
@@ -212,7 +211,7 @@ export const Hero = ({ onOpenResume }) => {
 
                   <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px]">
                     <span className="text-slate-400">// Compiling potential solutions...</span>
-                    <span className="text-emerald-400 flex items-center gap-1">
+                    <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                       Ready to build
                     </span>
@@ -220,11 +219,11 @@ export const Hero = ({ onOpenResume }) => {
                 </div>
 
                 {/* Floating Tech Chips */}
-                <div className="p-3 bg-white/[0.02] border-t border-white/5 flex flex-wrap gap-1.5 justify-center">
-                  <span className="px-2 py-0.5 rounded text-[10px] bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Java Certified</span>
-                  <span className="px-2 py-0.5 rounded text-[10px] bg-purple-500/10 text-purple-300 border border-purple-500/20">React Full-Stack</span>
-                  <span className="px-2 py-0.5 rounded text-[10px] bg-blue-500/10 text-blue-300 border border-blue-500/20">MySQL DB</span>
-                  <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Problem Solving</span>
+                <div className="p-3 bg-white/[0.02] border-t border-white/10 flex flex-wrap gap-1.5 justify-center">
+                  <span className="px-2.5 py-0.5 rounded text-[10px] bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold">Java Certified</span>
+                  <span className="px-2.5 py-0.5 rounded text-[10px] bg-purple-500/15 text-purple-300 border border-purple-500/30 font-semibold">React Full-Stack</span>
+                  <span className="px-2.5 py-0.5 rounded text-[10px] bg-blue-500/15 text-blue-300 border border-blue-500/30 font-semibold">MySQL DB</span>
+                  <span className="px-2.5 py-0.5 rounded text-[10px] bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">Problem Solving</span>
                 </div>
               </div>
             </div>
@@ -233,22 +232,22 @@ export const Hero = ({ onOpenResume }) => {
         </div>
 
         {/* Quick Highlights Counter Bar */}
-        <div className="mt-16 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="mt-16 pt-10 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-display font-bold gradient-text">Final Year</div>
-            <p className="text-xs text-slate-400 font-mono">B.Tech Computer Science</p>
+            <div className="text-2xl sm:text-3xl font-display font-extrabold gradient-text">Final Year</div>
+            <p className="text-xs text-slate-300 font-mono font-medium">B.Tech Computer Science</p>
           </div>
           <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-display font-bold text-white">4 Key Projects</div>
-            <p className="text-xs text-slate-400 font-mono">AI, Full-Stack &amp; Web Apps</p>
+            <div className="text-2xl sm:text-3xl font-display font-extrabold text-white">4 Key Projects</div>
+            <p className="text-xs text-slate-300 font-mono font-medium">AI, Full-Stack &amp; Web Apps</p>
           </div>
           <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-display font-bold text-cyan-400">CHAKRAVYUH 1.0</div>
-            <p className="text-xs text-slate-400 font-mono">Hackathon Participant</p>
+            <div className="text-2xl sm:text-3xl font-display font-extrabold text-cyan-300">CHAKRAVYUH 1.0</div>
+            <p className="text-xs text-slate-300 font-mono font-medium">Hackathon Participant</p>
           </div>
           <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-display font-bold text-purple-400">Scaler Topics</div>
-            <p className="text-xs text-slate-400 font-mono">Java Fundamentals Certified</p>
+            <div className="text-2xl sm:text-3xl font-display font-extrabold text-purple-300">Scaler Topics</div>
+            <p className="text-xs text-slate-300 font-mono font-medium">Java Fundamentals Certified</p>
           </div>
         </div>
 
@@ -256,14 +255,13 @@ export const Hero = ({ onOpenResume }) => {
         <div className="mt-12 flex justify-center">
           <a
             href="#about"
-            className="flex flex-col items-center gap-1 text-slate-400 hover:text-cyan-400 text-xs font-mono transition-colors group"
+            className="flex flex-col items-center gap-1.5 text-slate-400 hover:text-cyan-300 text-xs font-mono transition-colors group"
           >
             <span>Scroll to discover</span>
-            <ChevronDown className="w-4 h-4 animate-bounce group-hover:text-cyan-400" />
+            <ChevronDown className="w-4 h-4 animate-bounce group-hover:text-cyan-300" />
           </a>
         </div>
       </div>
     </section>
   );
 };
-

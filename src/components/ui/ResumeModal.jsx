@@ -152,24 +152,24 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs">
               <div>
-                <span className="font-semibold text-white">Programming Languages: </span>
+                <span className="font-semibold text-white">Programming: </span>
                 <span className="text-slate-300">Java, Python, C, C++</span>
               </div>
               <div>
-                <span className="font-semibold text-white">Frontend Development: </span>
-                <span className="text-slate-300">React.js, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS</span>
+                <span className="font-semibold text-white">Frontend: </span>
+                <span className="text-slate-300">HTML, CSS, JavaScript, React.js</span>
               </div>
               <div>
-                <span className="font-semibold text-white">Backend &amp; APIs: </span>
-                <span className="text-slate-300">Node.js, Express.js, RESTful Architecture</span>
+                <span className="font-semibold text-white">Backend: </span>
+                <span className="text-slate-300">Node.js, Express.js</span>
               </div>
               <div>
-                <span className="font-semibold text-white">Databases: </span>
-                <span className="text-slate-300">MySQL, SQL Querying &amp; Relational Schema Design</span>
+                <span className="font-semibold text-white">Database: </span>
+                <span className="text-slate-300">MySQL, SQL</span>
               </div>
               <div className="sm:col-span-2">
-                <span className="font-semibold text-white">Developer Tools: </span>
-                <span className="text-slate-300">Git, GitHub, VS Code, Postman</span>
+                <span className="font-semibold text-white">Tools: </span>
+                <span className="text-slate-300">Git, GitHub, VS Code</span>
               </div>
             </div>
           </div>
