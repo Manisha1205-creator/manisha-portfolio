@@ -26,9 +26,6 @@ export const Resume = ({ onOpenResumeModal }) => {
         origin: { y: 0.7 }
       });
     } catch (e) {}
-
-    // Open print preview or trigger PDF download
-    window.print();
   };
 
   return (
@@ -64,24 +61,29 @@ export const Resume = ({ onOpenResumeModal }) => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={onOpenResumeModal}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-200 glass-panel hover:bg-white/10 border border-white/15 transition-all hover:scale-105"
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+            <a
+              href="/assets/Manisha_Pandey_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-100 glass-panel hover:bg-white/10 border border-white/20 hover:border-cyan-500/40 transition-all hover:scale-105"
+              aria-label="View Manisha Pandey Resume in new tab"
             >
               <Eye className="w-4 h-4 text-cyan-400" />
-              <span>Full Screen Preview</span>
-            </button>
+              <span>View Resume</span>
+              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+            </a>
 
-            <button
-              type="button"
+            <a
+              href="/assets/Manisha_Pandey_Resume.pdf"
+              download="Manisha_Pandey_Resume.pdf"
               onClick={handleQuickDownload}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 shadow-glow-cyan/25 transition-all hover:scale-105 active:scale-95"
+              aria-label="Download Manisha Pandey Resume PDF"
             >
               <Download className="w-4 h-4" />
-              <span>Download PDF</span>
-            </button>
+              <span>Download Resume</span>
+            </a>
           </div>
         </div>
 

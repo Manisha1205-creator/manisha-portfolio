@@ -10,6 +10,8 @@ export const personalInfo = {
   email: "mp923089@gmail.com",
   github: "https://github.com/Manisha1205-creator/manisha-portfolio",
   linkedin: "https://www.linkedin.com/in/manishapandey121405",
+  profileImage: "/assets/profile.png",
+  resumeUrl: "/assets/Manisha_Pandey_Resume.pdf",
   education: {
     degree: "Bachelor of Technology (B.Tech)",
     major: "Computer Science & Engineering",

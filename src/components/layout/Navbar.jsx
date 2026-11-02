@@ -123,14 +123,16 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
               </button>
 
               {/* Resume Quick Action */}
-              <button
-                type="button"
-                onClick={onOpenResume}
+              <a
+                href="/assets/Manisha_Pandey_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg text-white bg-white/10 hover:bg-white/20 border border-white/20 light:border-slate-300 light:text-slate-800 transition-colors"
+                aria-label="View Resume PDF in new tab"
               >
                 <Download className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Resume</span>
-              </button>
+              </a>
 
               {/* Contact Direct Button */}
               <a
@@ -190,17 +192,16 @@ export const Navbar = ({ onOpenCommand, onOpenResume }) => {
                   <span>Search (Ctrl+K)</span>
                 </button>
 
-                <button
-                  type="button"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenResume();
-                  }}
+                <a
+                  href="/assets/Manisha_Pandey_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center gap-1.5 text-xs text-cyan-400 font-bold hover:text-cyan-300"
                 >
                   <Download className="w-4 h-4" />
                   <span>View Resume</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>

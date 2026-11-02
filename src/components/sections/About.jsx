@@ -56,16 +56,33 @@ export const About = () => {
           <div className="lg:col-span-5 space-y-6">
             {/* Visual Profile Card */}
             <div className="relative rounded-2xl glass-panel-elevated bg-[#0a0f1d] border border-white/10 p-6 sm:p-8 space-y-6 shadow-2xl">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-500 via-purple-600 to-sky-400 p-[2px] shadow-glow-dual">
-                  <div className="w-full h-full bg-[#080c14] rounded-[14px] flex items-center justify-center">
-                    <span className="font-display font-black text-2xl gradient-text">MP</span>
+              
+              {/* Rounded Portrait Layout with subtle cyan-purple border */}
+              <div className="relative rounded-2xl p-[2px] bg-gradient-to-tr from-cyan-500 via-purple-600 to-sky-400 shadow-glow-dual overflow-hidden group">
+                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-[14px] overflow-hidden bg-[#080c14]">
+                  <img
+                    src="/assets/profile.png"
+                    alt="Manisha Pandey - Computer Science Engineering Student"
+                    className="w-full h-full object-cover object-top sm:object-center transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Subtle dark gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d] via-[#0a0f1d]/20 to-transparent pointer-events-none" />
+                  
+                  {/* Bottom Portrait Caption */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <div>
+                      <h3 className="text-base sm:text-lg font-display font-bold text-white tracking-tight">
+                        Manisha Pandey
+                      </h3>
+                      <p className="text-xs font-mono text-cyan-300">
+                        Computer Science &amp; Engineering
+                      </p>
+                    </div>
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                      Class of 2026
+                    </span>
                   </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-display font-bold text-white">Manisha Pandey</h3>
-                  <p className="text-xs font-mono text-cyan-400">Computer Science Engineering</p>
-                  <p className="text-xs text-slate-400 mt-0.5">Final Year Undergrad Student</p>
                 </div>
               </div>
 

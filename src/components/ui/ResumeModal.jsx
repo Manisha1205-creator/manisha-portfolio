@@ -58,13 +58,24 @@ export const ResumeModal = ({ isOpen, onClose }) => {
           </div>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={handleDownload}
+            <a
+              href="/assets/Manisha_Pandey_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 glass-panel hover:bg-white/10 border border-white/15 transition-all"
+            >
+              <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Open PDF</span>
+            </a>
+
+            <a
+              href="/assets/Manisha_Pandey_Resume.pdf"
+              download="Manisha_Pandey_Resume.pdf"
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 shadow-glow-cyan/25 transition-all hover:scale-105"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Download / Save as PDF</span>
-            </button>
+              <span>Download PDF</span>
+            </a>
 
             <button
               onClick={onClose}

@@ -88,14 +88,15 @@ export const Hero = ({ onOpenResume }) => {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              <button
-                type="button"
-                onClick={onOpenResume}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-100 bg-white/10 hover:bg-white/15 border border-white/20 transition-all duration-200 hover:scale-105 active:scale-95"
+              <a
+                href="/assets/Manisha_Pandey_Resume.pdf"
+                download="Manisha_Pandey_Resume.pdf"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-100 bg-white/10 hover:bg-white/15 border border-white/20 transition-all duration-200 hover:scale-105 active:scale-95 shadow-md group"
+                aria-label="Download Manisha Pandey Resume PDF"
               >
-                <Download className="w-4 h-4 text-cyan-400" />
+                <Download className="w-4 h-4 text-cyan-400 group-hover:translate-y-0.5 transition-transform" />
                 <span>Download Resume</span>
-              </button>
+              </a>
 
               <a
                 href="#contact"
@@ -146,84 +147,62 @@ export const Hero = ({ onOpenResume }) => {
             </div>
           </div>
 
-          {/* Right Column: High-Tech Interactive Terminal Visual */}
+          {/* Right Column: Professional Portrait Visual */}
           <div className="lg:col-span-5 flex justify-center w-full">
-            <div className="relative w-full max-w-lg">
+            <div className="relative w-full max-w-sm sm:max-w-md">
               
-              {/* Outer Glow frame */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500/30 via-purple-500/20 to-cyan-500/30 blur-xl opacity-75 animate-pulse-slow" />
+              {/* Subtle Ambient Glow frame matching dark theme */}
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-cyan-500/30 via-purple-500/25 to-sky-400/30 blur-2xl opacity-75 animate-pulse-slow pointer-events-none" />
 
-              {/* Code Terminal Container */}
-              <div className="relative rounded-2xl glass-panel-elevated bg-[#0a0f1d]/95 border border-white/15 shadow-2xl overflow-hidden font-mono text-xs">
-                {/* Terminal Window Header */}
-                <div className="flex items-center justify-between px-4 py-3 bg-[#080c16] border-b border-white/10">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                  </div>
-                  <div className="text-[11px] text-slate-300 flex items-center gap-1.5 font-semibold">
-                    <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>manisha_developer.profile</span>
-                  </div>
-                  <span className="text-[10px] text-slate-400 font-mono">v2.0</span>
-                </div>
+              {/* Portrait Container with subtle cyan-purple border */}
+              <div className="relative rounded-3xl p-[2px] bg-gradient-to-tr from-cyan-500/60 via-purple-600/60 to-cyan-400/60 shadow-2xl overflow-hidden glass-panel-elevated">
+                <div className="relative rounded-[22px] overflow-hidden bg-[#080c16] aspect-[4/5]">
+                  <img
+                    src="/assets/profile.png"
+                    alt="Manisha Pandey - Computer Science Engineering Student & Aspiring Software Developer"
+                    className="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 hover:scale-105"
+                    loading="eager"
+                  />
 
-                {/* Terminal Body */}
-                <div className="p-5 space-y-3.5 text-slate-200">
-                  <div>
-                    <span className="text-purple-400 font-semibold">const</span> developer = &#123;
-                  </div>
-                  <div className="pl-4 space-y-1">
-                    <div>
-                      <span className="text-cyan-300 font-semibold">name:</span>{' '}
-                      <span className="text-amber-300">"Manisha Pandey"</span>,
-                    </div>
-                    <div>
-                      <span className="text-cyan-300 font-semibold">degree:</span>{' '}
-                      <span className="text-amber-300">"B.Tech Computer Science"</span>,
-                    </div>
-                    <div>
-                      <span className="text-cyan-300 font-semibold">graduationStatus:</span>{' '}
-                      <span className="text-emerald-400">"Final Year Student"</span>,
-                    </div>
-                    <div>
-                      <span className="text-cyan-300 font-semibold">coreLanguages:</span> [
-                      <span className="text-amber-300">"Java"</span>,{' '}
-                      <span className="text-amber-300">"React"</span>,{' '}
-                      <span className="text-amber-300">"Node.js"</span>,{' '}
-                      <span className="text-amber-300">"SQL"</span>],
-                    </div>
-                    <div>
-                      <span className="text-cyan-300 font-semibold">hackathonTrack:</span>{' '}
-                      <span className="text-purple-300">"CHAKRAVYUH 1.0 (AI/Security)"</span>,
-                    </div>
-                    <div>
-                      <span className="text-cyan-300 font-semibold">mindset:</span>{' '}
-                      <span className="text-amber-300">"Continuous learning &amp; practical code"</span>,
-                    </div>
-                    <div>
-                      <span className="text-cyan-300 font-semibold">readyToContribute:</span>{' '}
-                      <span className="text-emerald-400">true</span>
-                    </div>
-                  </div>
-                  <div>&#125;;</div>
+                  {/* Subtle contrast gradient at the bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#06090f]/95 via-[#06090f]/30 to-transparent pointer-events-none" />
 
-                  <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px]">
-                    <span className="text-slate-400">// Compiling potential solutions...</span>
-                    <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                      Ready to build
+                  {/* Top Floating Status Badges */}
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold bg-[#0a0f1d]/90 text-cyan-300 border border-cyan-500/40 backdrop-blur-md shadow-lg">
+                      <Terminal className="w-3 h-3 text-cyan-400" />
+                      <span>Software Dev</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-[#0a0f1d]/90 text-emerald-400 border border-emerald-500/40 backdrop-blur-md shadow-lg">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>Available for Roles</span>
                     </span>
                   </div>
-                </div>
 
-                {/* Floating Tech Chips */}
-                <div className="p-3 bg-white/[0.02] border-t border-white/10 flex flex-wrap gap-1.5 justify-center">
-                  <span className="px-2.5 py-0.5 rounded text-[10px] bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold">Java Certified</span>
-                  <span className="px-2.5 py-0.5 rounded text-[10px] bg-purple-500/15 text-purple-300 border border-purple-500/30 font-semibold">React Full-Stack</span>
-                  <span className="px-2.5 py-0.5 rounded text-[10px] bg-blue-500/15 text-blue-300 border border-blue-500/30 font-semibold">MySQL DB</span>
-                  <span className="px-2.5 py-0.5 rounded text-[10px] bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">Problem Solving</span>
+                  {/* Bottom Info Overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl glass-panel-elevated bg-[#0a0f1d]/90 border border-white/15 backdrop-blur-md space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h2 className="text-base sm:text-lg font-display font-bold text-white tracking-tight">
+                          Manisha Pandey
+                        </h2>
+                        <p className="text-xs font-mono text-cyan-300">
+                          B.Tech Computer Science &bull; Final Year
+                        </p>
+                      </div>
+                      <span className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
+                        <Code2 className="w-4 h-4" />
+                      </span>
+                    </div>
+
+                    {/* Quick Skill Tags */}
+                    <div className="flex flex-wrap gap-1.5 pt-1 border-t border-white/10 text-[10px] font-mono">
+                      <span className="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Java</span>
+                      <span className="px-2 py-0.5 rounded bg-purple-500/15 text-purple-300 border border-purple-500/30">React.js</span>
+                      <span className="px-2 py-0.5 rounded bg-sky-500/15 text-sky-300 border border-sky-500/30">Node.js</span>
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">MySQL</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
