@@ -92,9 +92,9 @@ export const ResumeModal = ({ isOpen, onClose }) => {
             </div>
 
             <div className="mt-4 sm:mt-0 text-xs font-mono text-slate-400 space-y-1 sm:text-right">
-              <p>Email: <span className="text-slate-200">{personalInfo.email}</span></p>
-              <p>GitHub: <span className="text-cyan-400">{personalInfo.github}</span></p>
-              <p>LinkedIn: <span className="text-purple-400">{personalInfo.linkedin}</span></p>
+              <p>Email: <a href={`mailto:${personalInfo.email}`} className="text-slate-200 hover:text-cyan-300 transition-colors">{personalInfo.email}</a></p>
+              <p>GitHub: <a href={personalInfo.github} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">{personalInfo.github}</a></p>
+              <p>LinkedIn: <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="text-purple-400 hover:underline">{personalInfo.linkedin}</a></p>
             </div>
           </div>
 

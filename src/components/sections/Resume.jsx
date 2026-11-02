@@ -102,9 +102,9 @@ export const Resume = ({ onOpenResumeModal }) => {
             </div>
 
             <div className="text-xs font-mono text-slate-400 space-y-1">
-              <div>Email: <span className="text-slate-200">{personalInfo.email}</span></div>
-              <div>GitHub: <span className="text-cyan-400">github.com/manishapandey</span></div>
-              <div>LinkedIn: <span className="text-purple-400">linkedin.com/in/manishapandey</span></div>
+              <div>Email: <a href={`mailto:${personalInfo.email}`} className="text-slate-200 hover:text-cyan-300 transition-colors">{personalInfo.email}</a></div>
+              <div>GitHub: <a href={personalInfo.github} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">github.com/Manisha1205-creator</a></div>
+              <div>LinkedIn: <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="text-purple-400 hover:underline">linkedin.com/in/manishapandey121405</a></div>
             </div>
           </div>
 

@@ -7,9 +7,9 @@ export const personalInfo = {
     "I am Manisha Pandey, a final-year Computer Science Engineering student with an interest in software development and emerging technologies. I enjoy learning programming concepts, solving technical problems, and transforming ideas into practical applications. Through academic projects and hackathon participation, I aim to strengthen my development skills and gain practical experience.",
   location: "India",
   status: "Available for Entry-Level Roles & Software Internships",
-  email: "manishapandey.dev@gmail.com",
+  email: "mp923089@gmail.com",
   github: "https://github.com/Manisha1205-creator/manisha-portfolio",
-  linkedin: "https://linkedin.com/in/manishapandey",
+  linkedin: "https://www.linkedin.com/in/manishapandey121405",
   education: {
     degree: "Bachelor of Technology (B.Tech)",
     major: "Computer Science & Engineering",
