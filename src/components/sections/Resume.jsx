@@ -266,6 +266,17 @@ export const Resume = ({ onOpenResumeModal }) => {
                     </div>
                     <span className="text-xs font-mono text-emerald-400 shrink-0">Verified</span>
                   </div>
+
+                  <div className="p-4 rounded-xl bg-white/[0.02] border border-amber-500/20 flex items-start justify-between gap-4">
+                    <div>
+                      <h5 className="text-sm font-bold text-white">Data Analytics Professional Training</h5>
+                      <p className="text-xs text-amber-300 font-mono">be10x &bull; 6 Months Duration</p>
+                      <p className="text-xs text-slate-300 mt-1">
+                        Professional training program in Data Analytics currently in progress.
+                      </p>
+                    </div>
+                    <span className="text-xs font-mono text-amber-300 shrink-0 font-semibold">In Progress</span>
+                  </div>
                 </div>
               </div>
             )}

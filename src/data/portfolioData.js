@@ -301,6 +301,17 @@ export const projectsData = [
 
 export const journeyTimeline = [
   {
+    year: "Ongoing Training",
+    period: "6 Months Duration",
+    title: "Data Analytics Professional Training",
+    category: "Professional Learning",
+    subtitle: "be10x | Currently Pursuing",
+    description:
+      "Currently enrolled in a structured 6-month Data Analytics training program through be10x to strengthen data-driven problem solving and analytical competencies.",
+    icon: "TrendingUp",
+    tags: ["Data Analytics", "be10x", "6 Months", "Currently Pursuing"],
+  },
+  {
     year: "Current / Final Year",
     period: "2023 - Present",
     title: "B.Tech in Computer Science & Engineering (Final Year)",
@@ -363,13 +374,32 @@ export const certificationsData = [
     title: "Java Fundamentals",
     issuer: "Scaler Topics",
     date: "Verified Completion",
+    status: "Completed",
+    statusType: "completed",
+    duration: "Coursework",
     category: "Programming Language",
     description:
       "Comprehensive certification covering Core Java syntax, Object-Oriented Programming paradigms, classes, objects, inheritance, interfaces, exception handling, and foundational memory allocation.",
     skillsLearned: ["Core Java", "OOP Principles", "Class Hierarchies", "Exception Handling", "Memory Model"],
     credentialId: "SCALER-JAVA-FUNDAMENTALS",
     badge: "Verified Coursework",
+    hasCertificate: true,
     verified: true,
+  },
+  {
+    id: "be10x-data-analytics",
+    title: "Data Analytics",
+    issuer: "be10x",
+    date: "Currently Pursuing",
+    status: "Currently Pursuing",
+    statusType: "in_progress",
+    duration: "6 Months",
+    category: "Data & Analytics",
+    description:
+      "Comprehensive 6-month professional training program in Data Analytics currently being pursued through be10x.",
+    badge: "In Progress",
+    hasCertificate: false,
+    verified: false,
   },
 ];
 

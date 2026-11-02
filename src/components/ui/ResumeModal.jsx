@@ -235,6 +235,16 @@ export const ResumeModal = ({ isOpen, onClose }) => {
                 </div>
                 <span className="font-mono text-cyan-300 shrink-0 ml-2">Verified</span>
               </div>
+
+              <div className="flex justify-between items-start">
+                <div>
+                  <span className="font-bold text-white">Data Analytics Training: </span>
+                  <span className="text-slate-300">
+                    be10x (6 Months Professional Training Program).
+                  </span>
+                </div>
+                <span className="font-mono text-amber-300 shrink-0 ml-2">In Progress</span>
+              </div>
             </div>
           </div>
         </div>
