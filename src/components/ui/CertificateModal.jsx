@@ -4,6 +4,8 @@ import confetti from 'canvas-confetti';
 
 export const CertificateModal = ({ certificate, onClose }) => {
   useEffect(() => {
+    if (!certificate) return;
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
@@ -24,9 +26,9 @@ export const CertificateModal = ({ certificate, onClose }) => {
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
-  }, [onClose]);
+  }, [certificate, onClose]);
 
   if (!certificate) return null;
 

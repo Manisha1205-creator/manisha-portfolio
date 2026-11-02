@@ -7,16 +7,17 @@ export const ResumeModal = ({ isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState('full');
 
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
-    if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    }
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [isOpen, onClose]);
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -23,6 +23,17 @@ export function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [isCommandMenuOpen, setIsCommandMenuOpen] = useState(false);
   const [toast, setToast] = useState(null);
+
+  useEffect(() => {
+    const handleGlobalKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsCommandMenuOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, []);
 
   const showToast = (message, type = 'success') => {
     setToast({ message, type });
@@ -54,27 +65,35 @@ export function App() {
         <Footer />
 
         {/* Interactive Modals */}
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
 
-        <CertificateModal
-          certificate={selectedCertificate}
-          onClose={() => setSelectedCertificate(null)}
-        />
+        {selectedCertificate && (
+          <CertificateModal
+            certificate={selectedCertificate}
+            onClose={() => setSelectedCertificate(null)}
+          />
+        )}
 
-        <ResumeModal
-          isOpen={isResumeOpen}
-          onClose={() => setIsResumeOpen(false)}
-        />
+        {isResumeOpen && (
+          <ResumeModal
+            isOpen={isResumeOpen}
+            onClose={() => setIsResumeOpen(false)}
+          />
+        )}
 
-        <CommandMenu
-          isOpen={isCommandMenuOpen}
-          onClose={() => setIsCommandMenuOpen(false)}
-          onSelectProject={(project) => setSelectedProject(project)}
-          onOpenResume={() => setIsResumeOpen(true)}
-        />
+        {isCommandMenuOpen && (
+          <CommandMenu
+            isOpen={isCommandMenuOpen}
+            onClose={() => setIsCommandMenuOpen(false)}
+            onSelectProject={(project) => setSelectedProject(project)}
+            onOpenResume={() => setIsResumeOpen(true)}
+          />
+        )}
 
         {/* Floating Utilities */}
         <BackToTop />

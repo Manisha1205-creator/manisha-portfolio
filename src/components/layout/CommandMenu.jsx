@@ -6,21 +6,24 @@ export const CommandMenu = ({ isOpen, onClose, onSelectProject, onOpenResume }) 
   const [query, setQuery] = useState('');
 
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleKeyDown = (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        if (isOpen) {
-          onClose();
-        } else {
-          // Open handled outside or via prop
-        }
+        onClose();
       }
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === 'Escape') {
         onClose();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
